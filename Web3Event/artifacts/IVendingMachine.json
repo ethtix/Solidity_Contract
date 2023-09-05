@@ -1,0 +1,100 @@
+{
+	"deploy": {
+		"VM:-": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"main:1": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"ropsten:3": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"rinkeby:4": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"kovan:42": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"goerli:5": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"Custom": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		}
+	},
+	"data": {
+		"bytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"deployedBytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"immutableReferences": {},
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"gasEstimates": null,
+		"methodIdentifiers": {
+			"registCommodity(address,address,address,uint256,uint256,uint256,bool)": "a102d7da"
+		}
+	},
+	"abi": [
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_treasury",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "_quoteNFT",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "_quoteToken",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_quotePrice",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_start",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_end",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bool",
+					"name": "_mintOrTransfer",
+					"type": "bool"
+				}
+			],
+			"name": "registCommodity",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		}
+	]
+}

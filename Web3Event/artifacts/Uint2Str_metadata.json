@@ -1,0 +1,81 @@
+{
+	"compiler": {
+		"version": "0.8.21+commit.d9974bed"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_i",
+						"type": "uint256"
+					}
+				],
+				"name": "uint2str",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "_uintAsString",
+						"type": "string"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Outside/Web3Event/NFTEventRegister.sol": "Uint2Str"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Outside/Web3Event/NFTEventRegister.sol": {
+			"keccak256": "0x4abc74a76ad571db52040b1f4da5be9a70796013d432170db2d1cd7e62a79684",
+			"license": "Unlicense",
+			"urls": [
+				"bzz-raw://838c2a2ae91a9ef7717c257c1d3c2d360bb8ad2d9dc8ce8f8a8c1f445a5165f0",
+				"dweb:/ipfs/QmTHbzpJMWhwiX83SzFRtoL8iz7gcTfVmz9JwJGeWyvqb9"
+			]
+		},
+		"Outside/Web3Event/NFTTicketAutoId.sol": {
+			"keccak256": "0xef264556a62f5f63bffe2ff25b821405bb91693261af219b96da5d8ed2511989",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6d533fbca11cacae724e0cc78c9112f849d65dea267f90874eb0b7d658aaf023",
+				"dweb:/ipfs/Qmb7RSbyeRV8kn2LwVFyrFDuM2S2FsG7LuSVkTBHU2YZic"
+			]
+		},
+		"Outside/Web3Event/NFTVendingMachine.sol": {
+			"keccak256": "0xe77d90ce7174a40b59707ed2e2be8d531fa22d4573aa5a47998034ec3fd32796",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://234ac72f7a8850dcf9b9a4de1487e08066c0b4dcf85360e89f98f01ea4178983",
+				"dweb:/ipfs/QmZBwhcoUkr5ZhtPWYfhhVGeaUA2F4zvHUhu2XvAUGwVBX"
+			]
+		}
+	},
+	"version": 1
+}

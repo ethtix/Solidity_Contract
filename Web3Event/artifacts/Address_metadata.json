@@ -1,0 +1,46 @@
+{
+	"compiler": {
+		"version": "0.8.21+commit.d9974bed"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"details": "Collection of functions related to the address type",
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Outside/Web3Event/NFTTicket.sol": "Address"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Outside/Web3Event/NFTTicket.sol": {
+			"keccak256": "0xf7c0a7451bfb71def94cb9553abc03bcb3c899f9c4a01480e9de3e6bb77836f8",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c5bfe5d7f966e34ff6afc767578d6eea9558068b91f77c7434f6977268076c5c",
+				"dweb:/ipfs/QmcJfAtr8gpUz295NJHU4TsaxnaCYUkp8u1JguurayMyK8"
+			]
+		}
+	},
+	"version": 1
+}

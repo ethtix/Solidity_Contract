@@ -1,0 +1,70 @@
+{
+	"compiler": {
+		"version": "0.8.21+commit.d9974bed"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "length",
+						"type": "uint256"
+					}
+				],
+				"name": "StringsInsufficientHexLength",
+				"type": "error"
+			}
+		],
+		"devdoc": {
+			"details": "String operations.",
+			"errors": {
+				"StringsInsufficientHexLength(uint256,uint256)": [
+					{
+						"details": "The `value` string doesn't fit in the specified `length`."
+					}
+				]
+			},
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Outside/Web3Event/NFTTicketAutoId.sol": "Strings"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Outside/Web3Event/NFTTicketAutoId.sol": {
+			"keccak256": "0xef264556a62f5f63bffe2ff25b821405bb91693261af219b96da5d8ed2511989",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6d533fbca11cacae724e0cc78c9112f849d65dea267f90874eb0b7d658aaf023",
+				"dweb:/ipfs/Qmb7RSbyeRV8kn2LwVFyrFDuM2S2FsG7LuSVkTBHU2YZic"
+			]
+		}
+	},
+	"version": 1
+}
