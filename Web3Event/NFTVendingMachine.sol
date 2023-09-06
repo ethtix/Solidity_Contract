@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
-import {Ownable} from "./NFTTicketAutoId.sol";
+import {Ownable, NFTTicketAutoId} from "./NFTTicketAutoId.sol";
 /**
  * @dev Interface of the ERC20 standard as defined in the EIP.
  */
@@ -202,10 +202,6 @@ interface IERC721 {
     function isApprovedForAll(address owner, address operator) external view returns (bool);
 }
 
-interface IERC721Minter is IERC721 {
-    function safeMint(address _to, uint256 _id) external;
-}
-
 /**
  * @dev Provides information about the current execution context, including the
  * sender of the transaction and its data. While these are generally available
@@ -283,6 +279,7 @@ contract VendingMachine is Context {
         uint256 _end;
         // current next id
         uint256 _current;
+        bool _nftMintOrTransfer;
     }
     // VendingMachine commodity Id => Id Info
     mapping(uint256 => nonPriceInfo) public nonPriceInfos;
@@ -320,7 +317,7 @@ contract VendingMachine is Context {
 
         if (nonPriceInfos[_commodityId]._nftMintOrTransfer) {
             // Sometimes _tokenID is not used and nft contract has its own id logic
-            IERC721Minter(_quoteNFT).safeMint(_buyer, _tokenId);
+            NFTTicketAutoId(_quoteNFT).safeMint(_buyer);
         } else {
             address _treasury = controllers[_commodityId];
             IERC721(_quoteNFT).safeTransferFrom(_treasury, _buyer, _tokenId);
@@ -397,7 +394,8 @@ contract VendingMachine is Context {
                 quotePrice: quotePrices[i],
                 _start: nonPriceInfos[i]._start,
                 _end: nonPriceInfos[i]._end,
-                _current: nonPriceInfos[i]._current
+                _current: nonPriceInfos[i]._current,
+                _nftMintOrTransfer: nonPriceInfos[i]._nftMintOrTransfer
             });
         }
         return K;
@@ -414,7 +412,8 @@ contract VendingMachine is Context {
                 quotePrice: quotePrices[commodityIds[i]],
                 _start: nonPriceInfos[commodityIds[i]]._start,
                 _end: nonPriceInfos[commodityIds[i]]._end,
-                _current: nonPriceInfos[commodityIds[i]]._current
+                _current: nonPriceInfos[commodityIds[i]]._current,
+                _nftMintOrTransfer: nonPriceInfos[commodityIds[i]]._nftMintOrTransfer
             });
         }
         return K;

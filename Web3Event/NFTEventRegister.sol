@@ -104,6 +104,7 @@ abstract contract Ownable is Context {
 contract NFTEventRegister is Ownable {
     // Vending Machine
     address public _vendingMachine;
+    string public _baseUri = "https://abc";
     // event id => controller address
     mapping (uint256 => address) public _eventOwner;
     // controller address => the list of controlled event id
@@ -137,6 +138,10 @@ contract NFTEventRegister is Ownable {
 
     function updateVendingMachine(address newVendingMachine) public onlyOwner {
         _vendingMachine = newVendingMachine;
+    }
+
+    function updateBaseUri(string calldata newBaseUri) public onlyOwner {
+        _baseUri = newBaseUri;
     }
     
     function transferManager(uint256 eventId, address manager) public {
@@ -184,7 +189,7 @@ contract NFTEventRegister is Ownable {
 
     function registEventWithoutNFT(uint256 startTime, uint256 duration, int256 latitude, int256 longitude, string calldata description, address nftFactoryAddress, address quoteToken, uint256 quotePrice, uint256 quantityForSale) public returns (address) {
         string memory eventName = string(abi.encodePacked("Web3Event_", uint2str(NextEventId)));
-        address nftContract = INFTTicketFactory(nftFactoryAddress).createNewNFTTicket(eventName, eventName, "", _msgSender());
+        address nftContract = INFTTicketFactory(nftFactoryAddress).createNewNFTTicket(eventName, eventName, _baseUri, _msgSender());
         _registEvent(startTime, duration, latitude, longitude, description, nftContract);
         // Our factory support minting method
         VendingMachine(_vendingMachine).registCommodity(_msgSender(), nftContract, quoteToken, quotePrice, 0, quantityForSale, true);
@@ -200,7 +205,7 @@ contract NFTEventRegister is Ownable {
     // Notice the vending machine info will not change accordingly!!
     function modifyEventInfo(uint256 eventId, uint256 startTime, uint256 duration, int256 latitude, int256 longitude, string calldata description, address nftContract) public {
         require(_eventOwner[eventId] == _msgSender(), "Unauthorized event info change");
-        _eventInfo[NextEventId] = EventMetadata({
+        _eventInfo[eventId] = EventMetadata({
             nftAddress: nftContract, 
             startTime: startTime,  // blocks.timestamp is a Unix time stamp.
             duration: duration,  // seconds
@@ -269,6 +274,5 @@ contract NFTEventRegister is Ownable {
         }
         return K;
     }
-
 }
    

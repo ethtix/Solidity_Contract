@@ -1579,6 +1579,17 @@ abstract contract ERC721Enumerable is ERC721, IERC721Enumerable {
         return _allTokens[index];
     }
 
+    function tokenOfOwnerTotal(address owner) public view returns (uint256[] memory _ids) {
+        uint256 number = ERC721.balanceOf(owner);
+        uint256[] memory K = new uint256[](number);
+        //require(msg.sender == creators[_id]);
+        for (uint256 i = 0; i < number; ++i) {
+            K[i] = _ownedTokens[owner][i];
+        }
+        
+        return K;
+    } 
+
     /**
      * @dev See {ERC721-_update}.
      */
