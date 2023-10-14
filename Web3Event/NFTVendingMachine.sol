@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.20;
+pragma solidity ^0.8.19;
 import {Ownable, NFTTicketAutoId} from "./NFTTicketAutoId.sol";
 /**
  * @dev Interface of the ERC20 standard as defined in the EIP.
