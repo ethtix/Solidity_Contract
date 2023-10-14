@@ -263,7 +263,7 @@ contract NFTStaking {
 
     // User claim its staked amount back after event over
     function claim(uint256 _eventId, uint256 _nftId) public returns (uint256) {
-        uint256 stakeAmount = _userStaked[_eventId].get(_eventId);
+        uint256 stakeAmount = _userStaked[_eventId].get(_nftId);
         require(stakeAmount > 0, "No stake for NFT ticket");
         (address nftTicket,uint256 startTime,uint256 duration,,,) = NFTEventRegister(_eventRegister)._eventInfo(_eventId);
         require(startTime + duration < block.timestamp, "Event Not End");
@@ -271,7 +271,7 @@ contract NFTStaking {
 
         require(NFTTicketChecker(_ticketChecker).getSingleProperty(_eventId,0x7573656400000000000000000000000000000000000000000000000000000000,_nftId) == 1, "Ticket No Check In!");
         require(!_userClaimed[_eventId][_nftId], "Alreay Claimed"); 
-        IERC20(_defaultStakeToken).transferFrom(address(this), msg.sender, stakeAmount);
+        IERC20(_defaultStakeToken).transfer(msg.sender, stakeAmount);
         _userClaimed[_eventId][_nftId] = true;
 
         emit Claimed(_eventId, _nftId, stakeAmount);
@@ -342,7 +342,7 @@ contract NFTStaking {
             }
         }
         uint256 claimAmount = _eventTotalStaked[_eventId] - tempCheckInAmount;
-        IERC20(_defaultStakeToken).transferFrom(address(this), msg.sender, claimAmount);
+        IERC20(_defaultStakeToken).transfer(msg.sender, claimAmount);
         _eventOwnerClaimed[_eventId] = true;
 
         emit EventHolderClaimed(_eventId, claimAmount);
